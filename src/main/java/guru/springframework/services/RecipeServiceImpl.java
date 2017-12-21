@@ -4,7 +4,6 @@ import guru.springframework.commands.RecipeCommand;
 import guru.springframework.converters.RecipeCommandToRecipe;
 import guru.springframework.converters.RecipeToRecipeCommand;
 import guru.springframework.domain.Recipe;
-import guru.springframework.exceptions.NotFoundException;
 import guru.springframework.repositories.reactive.RecipeReactiveRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,9 +31,9 @@ public class RecipeServiceImpl implements RecipeService {
 
         Mono<Recipe> recipeMono = recipeRepository.findById(id);
 
-        if (!recipeMono.blockOptional().isPresent()) {
-            throw new NotFoundException("Recipe Not Found. For ID value: " + id );
-        }
+//        if (!recipeMono.blockOptional().isPresent()) {
+//            throw new NotFoundException("Recipe Not Found. For ID value: " + id );
+//        }
 
         return recipeMono;
     }

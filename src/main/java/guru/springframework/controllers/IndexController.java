@@ -23,7 +23,8 @@ public class IndexController {
     public String getIndexPage(Model model) {
         log.debug("Getting Index page");
 
-        model.addAttribute("recipes", recipeService.getRecipes().collectList().block());
+        // here we return back a Flux<Recipe>
+        model.addAttribute("recipes", recipeService.getRecipes()); //.collectList().block());
 
         return "index";
     }
